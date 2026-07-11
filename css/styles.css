@@ -191,8 +191,6 @@ strong{ font-weight:600; color:var(--brand-deep); }
   .nav-links a{ display:block; padding:14px 0; }
   .nav-toggle{ display:block; }
   .nav-cta.desktop{ display:none; }
-  .nav-links li:has(.nav-cta){ border-bottom:none; }
-  .nav-links .nav-cta{ display:flex; justify-content:center; width:100%; margin:14px 0 4px; padding:.92rem 1.7rem; }
 }
 
 /* =========================================================
