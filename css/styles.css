@@ -296,8 +296,7 @@ strong{ font-weight:600; color:var(--brand-deep); }
    AĞRI NOKTALARI (kartlar)
    ========================================================= */
 .pain-intro{
-  background:var(--surface); border:1px solid var(--line-soft); border-left:3px solid var(--clay);
-  border-radius:18px; padding:1.4rem 1.5rem; max-width:760px; margin-bottom:2.6rem;
+  margin-bottom:2.6rem;
   color:var(--ink); font-size:1.06rem;
 }
 .card-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
