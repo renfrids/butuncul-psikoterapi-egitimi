@@ -631,6 +631,6 @@ strong{ font-weight:600; color:var(--brand-deep); }
 /* erişilebilirlik */
 :focus-visible{ outline:2px solid var(--clay); outline-offset:2px; border-radius:4px; }
 @media (prefers-reduced-motion:reduce){ *{ animation:none!important; transition:none!important; scroll-behavior:auto; } }
-.brand img{ height:44px; width:auto; display:block; }
+.brand img{ height:54px; width:auto; display:block; }
 .foot-brand img{ height:58px; width:auto; }
-@media (max-width:600px){ .brand img{ height:38px; } }
+@media (max-width:600px){ .brand img{ height:46px; } }
