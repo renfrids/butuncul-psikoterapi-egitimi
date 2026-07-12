@@ -166,37 +166,6 @@ form.addEventListener('submit', async (e) => {
   }
 });
 
-/* ---------- galeri (tiklayinca buyuyen kart) ---------- */
-(() => {
-  const shots = document.querySelectorAll('.gallery .shot');
-  const overlay = document.getElementById('galeriOverlay');
-  if (!shots.length || !overlay) return;
-
-  const overlayImg = document.getElementById('galeriOverlayImg');
-  const overlayCap = document.getElementById('galeriOverlayCap');
-  const closeBtn = overlay.querySelector('.gallery-overlay-close');
-  const backdrop = overlay.querySelector('.gallery-overlay-backdrop');
-
-  function openShot(shot) {
-    const img = shot.querySelector('img');
-    if (!img) return;
-    overlayImg.src = img.src;
-    overlayImg.alt = img.alt;
-    overlayCap.textContent = shot.dataset.caption || '';
-    overlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeOverlay() {
-    overlay.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  shots.forEach(shot => shot.addEventListener('click', () => openShot(shot)));
-  backdrop.addEventListener('click', closeOverlay);
-  closeBtn.addEventListener('click', closeOverlay);
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeOverlay(); });
-})();
-
 /* ---------- video placeholder ---------- */
 document.getElementById('videoFrame').addEventListener('click', () => {
   /* TODO (Claude Code): YouTube/Vimeo iframe'i buraya gömün. */
