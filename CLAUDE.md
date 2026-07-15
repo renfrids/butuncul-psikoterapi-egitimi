@@ -59,15 +59,21 @@ Renkler markanın logosundan türetildi (derin indigo-lacivert + sıcak bej + ö
 
 ## Sayfa akışı (brief'e göre, sırayla)
 
-Hero → Tanıtım Videosu → Zorluklar → Nedir → Kimler İçin → Kazanımlar →
+Hero (hook → tanıtım videosu → açıklama) → Zorluklar → Nedir → Kimler İçin → Kazanımlar →
 Eğitim İçeriği (müfredat akordeon) → Teoriden Uygulamaya (formülasyon) →
-Uygulama & Süpervizyon → Fark → Galeri → Eğitmen → Tarih/Yer/Detaylar → SSS → Form.
+Uygulama & Süpervizyon → Fark → Galeri → Eğitmen → Tarih/Yer/Detaylar →
+Katılımcı Yorumları → SSS → Form.
 
 > Not: Galeri, "Eğitim" sekmesinin sonuna (Fark'tan hemen sonra) taşındı —
 > önceden Eğitmenler sekmesinin altındaydı.
 
-> Not: Brief'te 13. sırada olan "Katılımcı Yorumları" bölümü müşteri talebiyle
-> **çıkarıldı**. Tekrar eklenmemeli (aksi belirtilmedikçe).
+> Not: Tanıtım videosu artık ayrı bir bölüm değil, Hero içinde (hook başlığın
+> hemen altında) gömülü — 13.07.2026 revizyonuyla taşındı.
+
+> Not: "Katılımcı Yorumları" bölümü daha önce müşteri talebiyle çıkarılmıştı;
+> 13.07.2026 revizyon PDF'i ile tekrar istendi ve placeholder olarak eklendi
+> (`#sss` sekmesinde, Detaylar ile SSS arasında). Gerçek yorum/video içeriği
+> gelince `[Katılımcı adı]` ve "Yorum metni eklenecek." yer tutucuları doldurulacak.
 
 ## DOLDURULACAK / BAĞLANACAK (TODO)
 
