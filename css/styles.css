@@ -108,13 +108,14 @@ strong{ font-weight:600; color:var(--brand-deep); }
 /* ---------- Yerleşim ---------- */
 .container{ width:100%; max-width:var(--maxw); margin:0 auto; padding:0 24px; }
 .section{
-  padding:clamp(64px, 9vw, 118px) 0;
+  padding:clamp(72px, 10vw, 132px) 0;
   position:relative;
   background-image:
     radial-gradient(38% 55% at 6% 6%, rgba(43,49,80,.045), transparent 62%),
     radial-gradient(32% 45% at 96% 94%, rgba(169,119,63,.04), transparent 60%);
   background-repeat:no-repeat;
 }
+.section + .section{ border-top:1px solid var(--line-soft); }
 .section--alt{ background-color:var(--bg-alt); }
 .section--brand{
   background-color:var(--brand); color:#EAE3D4;
@@ -125,7 +126,7 @@ strong{ font-weight:600; color:var(--brand-deep); }
 .section--brand h2,
 .section--brand h3{ color:#F4EEDF; }
 .section--tight{ padding-top:clamp(40px,6vw,70px); }
-.section-head{ max-width:720px; margin-bottom:clamp(34px,5vw,58px); }
+.section-head{ max-width:720px; margin-bottom:clamp(40px,6vw,68px); }
 .section-head.center{ margin-left:auto; margin-right:auto; text-align:center; }
 .lead{ font-size:1.13rem; color:var(--muted); }
 .section--brand .lead{ color:#CBC2AE; }
