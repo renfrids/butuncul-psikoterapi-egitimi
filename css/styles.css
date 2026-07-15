@@ -255,11 +255,13 @@ strong{ font-weight:600; color:var(--brand-deep); }
 .img-placeholder .ph-ic{ font-size:1.7rem; opacity:.8; }
 .img-placeholder small{ opacity:.7; font-size:.76rem; max-width:24ch; }
 .hero-hook-overlay{
-  position:absolute; top:0; left:0; right:0; z-index:2;
-  margin:0; padding:1.5rem 1.6rem 2.4rem;
-  font-family:var(--sans); font-weight:700; font-size:1.12rem; line-height:1.4;
+  margin:0 0 1rem;
+  padding:1.1rem 1.4rem;
+  font-family:var(--sans); font-weight:700; font-size:1.05rem; line-height:1.4;
   color:#F4EEDF;
-  background:linear-gradient(to bottom, rgba(15,15,25,.68) 0%, rgba(15,15,25,.35) 60%, transparent 100%);
+  background:linear-gradient(155deg, #3a4166, #20263f);
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-sm);
 }
 
 @media (max-width:860px){
