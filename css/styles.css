@@ -211,11 +211,11 @@ strong{ font-weight:600; color:var(--brand-deep); }
   0%,100%{ box-shadow:0 0 0 0 rgba(247,200,115,.55); }
   50%{ box-shadow:0 0 0 5px rgba(247,200,115,0); }
 }
-.hero-kicker{
-  font-family:var(--sans); font-weight:700; font-size:1.05rem; letter-spacing:.01em;
-  color:var(--brand); margin:0 0 .5rem; text-transform:uppercase; opacity:.9;
+.hero h1{ margin-bottom:.4em; }
+.hero-hook{
+  font-family:var(--serif); font-style:italic; font-weight:700;
+  font-size:1.05rem; color:var(--brand-soft); margin:0 0 1.1rem;
 }
-.hero h1{ margin-bottom:.55em; }
 .typewriter-cursor{
   display:inline-block; margin-left:2px; color:var(--clay); font-weight:400;
   animation:tw-blink 1s step-end infinite;
@@ -584,7 +584,7 @@ strong{ font-weight:600; color:var(--brand-deep); }
 }
 .sticky-inner{
   display:flex; align-items:center; justify-content:space-between; gap:20px;
-  padding:14px 22px; background:var(--surface); border:1px solid var(--line);
+  padding:18px 26px; background:var(--surface); border:1px solid var(--line);
   border-radius:18px; box-shadow:0 16px 44px rgba(28,30,51,.22);
 }
 .sticky-tag{
@@ -600,7 +600,7 @@ strong{ font-weight:600; color:var(--brand-deep); }
   .sticky-bar{ bottom:12px; width:calc(100% - 20px); }
   .sticky-inner{ padding:12px 16px; gap:12px; border-radius:18px; }
   .sticky-inner .txt small{ display:none; }
-  .sticky-bar .btn{ padding:.9rem 1.5rem; font-size:1rem; }
+  .sticky-bar .btn{ padding:1.05rem 1.7rem; font-size:1.05rem; }
 }
 
 /* organik bölüm ayraçları */
