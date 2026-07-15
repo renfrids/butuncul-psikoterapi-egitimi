@@ -57,23 +57,38 @@ Renkler markanın logosundan türetildi (derin indigo-lacivert + sıcak bej + ö
   Hero, ağrı noktası kartları ve alıntı bloklarında tekrar eder. Korunmalı.
 - Renk değiştirmek için tokenları değiştir; bileşenler otomatik güncellenir.
 
-## Sayfa akışı (brief'e göre, sırayla)
+## Navigasyon: TEK sayfa, sekme yok
 
-Hero (hook → tanıtım videosu → açıklama) → Zorluklar → Nedir → Kimler İçin → Kazanımlar →
-Eğitim İçeriği (müfredat akordeon) → Teoriden Uygulamaya (formülasyon) →
-Uygulama & Süpervizyon → Fark → Galeri → Eğitmen → Tarih/Yer/Detaylar →
-Katılımcı Yorumları → SSS → Form.
+Önemli: Sayfa artık **tek kesintisiz kaydırma** ile çalışıyor — eskiden bir "sekme" sistemi
+vardı (Ana Sayfa / Hakkımızda / Eğitim / Eğitmenler / S.S.S. tıklanınca farklı bir "görünüm"
+açılıp diğerleri gizleniyordu, `js/main.js`'te `showHome()`/`showTab()` ile). Bu sistem
+**13.07.2026 revizyonuyla tamamen kaldırıldı** — müşteri talebiyle tüm bölümler artık tek
+bir sayfada üst üste akıyor, üst menüdeki linkler sadece ilgili bölüme kaydırıyor
+(native anchor scroll + `scroll-margin-top`, JS'te ayrı bir yönlendirme mantığı yok).
+Yeni bir bölüm eklerken tab-panel/home-view kavramlarını **geri getirme** — artık yok.
 
-> Not: Galeri, "Eğitim" sekmesinin sonuna (Fark'tan hemen sonra) taşındı —
-> önceden Eğitmenler sekmesinin altındaydı.
+## Sayfa akışı (sırayla)
 
-> Not: Tanıtım videosu artık ayrı bir bölüm değil, Hero içinde (hook başlığın
-> hemen altında) gömülü — 13.07.2026 revizyonuyla taşındı.
+Hero (tag/kicker/hook başlık + açıklama, sağda görsel) → Tanıtım Videosu (`#video`, ayrı
+bölüm) → Kazanımlar → Zorluklar → Hakkımızda → Nedir → Kimler İçin → Müfredat →
+Formülasyon (Teoriden Uygulamaya) → Süpervizyon → Fark → Galeri →
+**Eğitmen Banu İkincisoy Hakkında** (yeni, Banu'ya özel odak bölümü) → Eğitmenlerimiz
+(7 kişilik ekip grid'i) → Detaylar → Katılımcı Yorumları → SSS → Form.
+
+> Not: "Eğitmen Banu İkincisoy Hakkında" ile "Eğitmenlerimiz" **iki ayrı bölüm** —
+> ilki sadece Banu'nun (eğitmenin) detaylı biyografisi/tanıtımı, ikincisi 7 kişilik
+> tüm eğitmen kadrosunun kısa kartları. Eğitmenlerimiz grid'indeki Banu kartı artık
+> kısa/basit (diğer kartlarla aynı format), detaylı biyografi yalnızca üstteki
+> Banu bölümünde. Bunları tekrar birleştirme.
+
+> Not: Tanıtım videosu Hero'nun içinden çıkarılıp tekrar ayrı bir bölüm (`#video`)
+> yapıldı — Hero'da onun yerine görsel/portre placeholder'ı duruyor (gerçek fotoğraf
+> geldiğinde `.hero-visual .img-placeholder` değişecek).
 
 > Not: "Katılımcı Yorumları" bölümü daha önce müşteri talebiyle çıkarılmıştı;
 > 13.07.2026 revizyon PDF'i ile tekrar istendi ve placeholder olarak eklendi
-> (`#sss` sekmesinde, Detaylar ile SSS arasında). Gerçek yorum/video içeriği
-> gelince `[Katılımcı adı]` ve "Yorum metni eklenecek." yer tutucuları doldurulacak.
+> (Detaylar ile SSS arasında). Gerçek yorum/video içeriği gelince `[Katılımcı adı]`
+> ve "Yorum metni eklenecek." yer tutucuları doldurulacak.
 
 ## DOLDURULACAK / BAĞLANACAK (TODO)
 

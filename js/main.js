@@ -3,8 +3,6 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 /* ---------- header scroll ---------- */
 const header = document.getElementById('siteHeader');
-const navCta = document.querySelector('.nav-cta[href="#form"]');
-const hero = document.getElementById('hero');
 window.addEventListener('scroll', () => {
   header.classList.toggle('scrolled', window.scrollY > 8);
 });
@@ -41,80 +39,6 @@ links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links
   typeNext();
 })();
 
-/* ---------- ana sayfa / sekme "sayfa değişimi" navigasyonu ---------- */
-const homeView = document.getElementById('homeView');
-const tabPanels = document.querySelectorAll('.tab-panel');
-
-function showHome({ scroll = true } = {}) {
-  homeView.classList.remove('hidden');
-  tabPanels.forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-links a, .foot-links a').forEach(a => a.classList.remove('active'));
-  if (scroll) window.scrollTo({ top: 0, behavior: 'auto' });
-}
-
-function showTab(panel, { scroll = true } = {}) {
-  homeView.classList.add('hidden');
-  tabPanels.forEach(p => p.classList.toggle('active', p === panel));
-  document.querySelectorAll('.nav-links a, .foot-links a').forEach(a => {
-    a.classList.toggle('active', a.getAttribute('href') === '#' + panel.id);
-  });
-  if (scroll) window.scrollTo({ top: 0, behavior: 'auto' });
-}
-
-function scrollToInPage(id) {
-  const target = document.getElementById(id);
-  if (!target) return;
-  const y = target.getBoundingClientRect().top + window.scrollY - (header.offsetHeight + 14);
-  window.scrollTo({ top: y, behavior: 'smooth' });
-}
-
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  const id = a.getAttribute('href').slice(1);
-
-  if (id === 'hero') {
-    a.addEventListener('click', (e) => {
-      e.preventDefault();
-      showHome();
-      links.classList.remove('open');
-    });
-    return;
-  }
-
-  const target = document.getElementById(id);
-  if (!target) return;
-
-  if (target.classList.contains('tab-panel')) {
-    a.addEventListener('click', (e) => {
-      e.preventDefault();
-      showTab(target);
-      links.classList.remove('open');
-    });
-    return;
-  }
-
-  const panel = target.closest('.tab-panel');
-  if (panel) {
-    a.addEventListener('click', (e) => {
-      e.preventDefault();
-      showTab(panel, { scroll: false });
-      scrollToInPage(id);
-      links.classList.remove('open');
-    });
-  }
-  /* #form gibi sekme sisteminin dışındaki linkler tarayıcının doğal çapa davranışına bırakılır */
-});
-
-(() => {
-  const hashId = location.hash.slice(1);
-  const hashTarget = hashId && document.getElementById(hashId);
-  const hashPanel = hashTarget && (hashTarget.classList.contains('tab-panel') ? hashTarget : hashTarget.closest('.tab-panel'));
-  if (hashPanel) {
-    showTab(hashPanel, { scroll: false });
-  } else {
-    showHome({ scroll: false });
-  }
-})();
-
 /* ---------- akordeonlar (müfredat + SSS) ---------- */
 document.querySelectorAll('.acc-head').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -130,17 +54,6 @@ document.querySelectorAll('.acc-head').forEach(btn => {
       item.classList.add('open');
       body.style.maxHeight = body.scrollHeight + 'px';
     }
-  });
-});
-
-/* ---------- eğitmen kartı "devamını oku" ---------- */
-document.querySelectorAll('.team-more-btn').forEach(btn => {
-  const more = btn.nextElementSibling;
-  btn.addEventListener('click', () => {
-    const open = btn.classList.toggle('open');
-    btn.setAttribute('aria-expanded', String(open));
-    btn.firstChild.textContent = open ? 'Daha az göster ' : 'Devamını oku ';
-    more.style.maxHeight = open ? more.scrollHeight + 'px' : null;
   });
 });
 
