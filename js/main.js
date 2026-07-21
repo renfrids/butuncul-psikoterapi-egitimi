@@ -73,6 +73,19 @@ form.addEventListener('submit', async (e) => {
     if (!res.ok) throw new Error('Gönderim başarısız');
     form.style.display = 'none';
     document.getElementById('formSuccess').classList.add('show');
+    /* Meta Pixel: Lead eventi yalnızca basvuru basariyla kaydedildikten sonra tetiklenir.
+       TODO: Conversions API (backend) kurulunca event_id backend'de uretilip buraya
+       donmeli - Pixel ve CAPI ayni event_id'yi paylasmali (dedup icin). Backend yokken
+       gecici olarak burada uretiliyor. */
+    if (typeof fbq === 'function') {
+      const eventId = 'LEAD_' + crypto.randomUUID();
+      fbq('track', 'Lead', {
+        content_name: 'Bütüncül Psikoterapi Eğitimi',
+        content_category: 'education',
+        lead_type: 'pre_interview_application',
+        form_id: 'education_pre_interview_form'
+      }, { eventID: eventId });
+    }
   } catch (err) {
     submitBtn.disabled = false;
     alert('Talebiniz gönderilemedi. Lütfen tekrar deneyin ya da bizimle doğrudan iletişime geçin.');
