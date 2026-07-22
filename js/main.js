@@ -57,34 +57,51 @@ document.querySelectorAll('.acc-head').forEach(btn => {
   });
 });
 
-/* ---------- form (Formspree'ye gönderim) ---------- */
+/* ---------- form (Netlify Function uzerinden Formspree + Meta CAPI) ---------- */
 const form = document.getElementById('leadForm');
+
+function getCookie(name) {
+  const match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+  return match ? decodeURIComponent(match[1]) : '';
+}
+
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   if (!form.checkValidity()) { form.reportValidity(); return; }
   const submitBtn = form.querySelector('button[type="submit"]');
   submitBtn.disabled = true;
   try {
-    const res = await fetch(form.action, {
+    const params = new URLSearchParams(location.search);
+    const payload = {
+      ad: form.ad.value,
+      email: form.email.value,
+      tel: form.tel.value,
+      meslek: form.meslek.value,
+      kvkk_onay: form.kvkk.checked ? 'Onaylandı' : '',
+      fbp: getCookie('_fbp'),
+      fbc: getCookie('_fbc'),
+      fbclid: params.get('fbclid') || '',
+      landing_url: location.href,
+      referrer: document.referrer,
+    };
+    const res = await fetch('/.netlify/functions/submit-lead', {
       method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' },
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
     });
-    if (!res.ok) throw new Error('Gönderim başarısız');
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || !data.success) throw new Error('Gönderim başarısız');
     form.style.display = 'none';
     document.getElementById('formSuccess').classList.add('show');
-    /* Meta Pixel: Lead eventi yalnızca basvuru basariyla kaydedildikten sonra tetiklenir.
-       TODO: Conversions API (backend) kurulunca event_id backend'de uretilip buraya
-       donmeli - Pixel ve CAPI ayni event_id'yi paylasmali (dedup icin). Backend yokken
-       gecici olarak burada uretiliyor. */
-    if (typeof fbq === 'function') {
-      const eventId = 'LEAD_' + crypto.randomUUID();
+    /* Meta Pixel: Lead eventi yalnizca basvuru basariyla kaydedildikten sonra, backend'in
+       urettigi ayni event_id ile tetiklenir (Pixel + CAPI dedup icin). */
+    if (typeof fbq === 'function' && data.eventId) {
       fbq('track', 'Lead', {
         content_name: 'Bütüncül Psikoterapi Eğitimi',
         content_category: 'education',
         lead_type: 'pre_interview_application',
         form_id: 'education_pre_interview_form'
-      }, { eventID: eventId });
+      }, { eventID: data.eventId });
     }
   } catch (err) {
     submitBtn.disabled = false;
