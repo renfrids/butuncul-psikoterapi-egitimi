@@ -95,12 +95,10 @@ Formülasyon (Teoriden Uygulamaya) → Süpervizyon → Fark → Galeri →
 Kod içinde `TODO` ve `[köşeli parantez]` ile işaretli. Brief ilkesi:
 **kesinleşmemiş bilgiyi varsayım olarak ekleme** — gerçek bilgi gelince doldur.
 
-1. **Form gönderimi** — `js/main.js` içindeki `leadForm` submit handler şu an demo (sadece
-   başarı mesajı gösterir). Gerçek hedefe bağla. Seçenekler:
-   - E-posta bildirimi (ör. Formspree / EmailJS / kendi SMTP endpoint'i)
-   - Google Sheets (Apps Script web app'e `fetch` POST)
-   - Kendi backend / CRM endpoint'i
-   Müşteri hedefi henüz seçmedi — seçilince `fetch` ile POST ekle, KVKK onayını da gönder.
+1. ~~Form gönderimi~~ — **TAMAMLANDI.** `leadForm`, `netlify/functions/submit-lead.js`
+   Netlify Function'ına POST ediyor; bu function Formspree'ye (`mkodwnvn`) iletiyor ve
+   başarılıysa Meta Conversions API'ye de gönderiyor (bkz. "Meta Pixel / Conversions API"
+   bölümü aşağıda).
 2. **Tanıtım videosu** — `#video` placeholder; `js/main.js`'teki tıklama YouTube/Vimeo iframe
    gömecek şekilde değiştirilecek (video linki gelince).
 3. **Görseller** — `assets/images/` altına: Banu İkincisoy portresi (hero + eğitmen bölümü),
@@ -111,6 +109,21 @@ Kod içinde `TODO` ve `[köşeli parantez]` ile işaretli. Brief ilkesi:
    olmayan modül eklenmez.
 6. **Tarih / yer / ücret / kontenjan / sertifika / süpervizyon detayları** — `#detaylar`
    kartları ve ilgili SSS yanıtları (`netleştirilecek` placeholder'ları).
+
+## Meta Pixel / Conversions API (22.07.2026 kuruldu)
+
+- Pixel ID: `1573209434143007`, temel kod `index.html` `<head>`'de (PageView otomatik).
+- `Lead` eventi **yalnızca** `netlify/functions/submit-lead.js` başarı döndürünce, browser
+  tarafında `js/main.js`'teki form submit handler'ından tetiklenir (buton tıklamasında değil).
+- Backend akışı: form → `submit-lead` function → Formspree'ye ilet → başarılıysa SHA-256 ile
+  hash'lenmiş kullanıcı verisiyle Meta CAPI'ye gönder → aynı `event_id`'yi frontend'e döndür
+  (Pixel de aynı ID'yi kullanır, dedup böyle sağlanır).
+- `META_ACCESS_TOKEN` yalnızca Netlify environment variable'da (asla kodda/git'te değil).
+- **Eksik/bilinen sınır:** `submission_id` bazlı kalıcı (backend'de saklanan) çift-gönderim
+  engeli yok — şu an yalnızca submit butonunun geçici disable edilmesi var. İleride
+  Netlify Blobs ile eklenebilir.
+- `site-tek-dosya.html` (tek dosyalık önizleme kopyası) bu function'a erişemez — o kopyada
+  form artık çalışmaz, yalnızca canlı site (butunculterapilerenstitusu.com) üzerinden test et.
 
 ## SSS
 
