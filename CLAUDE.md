@@ -113,17 +113,22 @@ Kod içinde `TODO` ve `[köşeli parantez]` ile işaretli. Brief ilkesi:
 ## Meta Pixel / Conversions API (22.07.2026 kuruldu)
 
 - Pixel ID: `1573209434143007`, temel kod `index.html` `<head>`'de (PageView otomatik).
-- `Lead` eventi **yalnızca** `netlify/functions/submit-lead.js` başarı döndürünce, browser
-  tarafında `js/main.js`'teki form submit handler'ından tetiklenir (buton tıklamasında değil).
-- Backend akışı: form → `submit-lead` function → Formspree'ye ilet → başarılıysa SHA-256 ile
-  hash'lenmiş kullanıcı verisiyle Meta CAPI'ye gönder → aynı `event_id`'yi frontend'e döndür
-  (Pixel de aynı ID'yi kullanır, dedup böyle sağlanır).
+- `Lead` eventi **hem** tarayıcıdan (Pixel) **hem** sunucudan (CAPI) gönderilir — Meta'nın
+  önerdiği çift kanal + dedup yöntemi. Backend akışı: form → `submit-lead` function →
+  Formspree'ye ilet → başarılıysa SHA-256 ile hash'lenmiş kullanıcı verisiyle Meta CAPI'ye
+  gönder → aynı `event_id`'yi frontend'e döndür → `js/main.js` bu ID ile `fbq('track','Lead',...)`
+  çağırır (yalnızca form başarıyla kaydedildikten sonra, buton tıklamasında değil).
+  **Önemli:** Tarayıcıdaki bu Pixel çağrısı kişisel veri (e-posta/telefon/ad) İÇERMEZ —
+  yalnızca kategori/ID bilgisi taşır; hash'lenmiş hassas veri yalnızca sunucudaki CAPI
+  çağrısında yer alır. Bu ayrımı bozup birini kaldırma (13.07-22.07.2026 arasında bir ara
+  yalnızca-sunucu denenmişti, dedup/dogrulama zorlaştığı için Pixel+CAPI ikilisine geri dönüldü).
 - `META_ACCESS_TOKEN` yalnızca Netlify environment variable'da (asla kodda/git'te değil).
 - **Eksik/bilinen sınır:** `submission_id` bazlı kalıcı (backend'de saklanan) çift-gönderim
   engeli yok — şu an yalnızca submit butonunun geçici disable edilmesi var. İleride
   Netlify Blobs ile eklenebilir.
-- `site-tek-dosya.html` (tek dosyalık önizleme kopyası) bu function'a erişemez — o kopyada
-  form artık çalışmaz, yalnızca canlı site (butunculterapilerenstitusu.com) üzerinden test et.
+- Telefon alanı (`#tel`) özel doğrulama içerir: `0` ile başlayan yerel (11 hane) veya `90`/`+90`
+  ile başlayan uluslararası (12 hane) formatları kabul eder; yalnızca önek yoksa (çıplak 10
+  hane) `#telError` ile alan altında kırmızı uyarı gösterir — native tarayıcı balonu yerine.
 
 ## SSS
 
