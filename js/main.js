@@ -70,7 +70,9 @@ const telField = telInput.closest('.field');
 
 function validatePhone() {
   const digits = telInput.value.replace(/\D/g, '');
-  const valid = /^0\d{10}$/.test(digits); // basinda 0 + toplam 11 hane (TR cep telefonu)
+  // Kabul edilen formatlar: 0XXXXXXXXXX (11 hane, yerel) veya 90XXXXXXXXXX (12 hane, +90 dahil ulke kodulu).
+  // Sadece cıplak 10 haneli (0 veya 90 onsuz) girisde "basina 0 koy" uyarisi gosterilir.
+  const valid = /^0\d{10}$/.test(digits) || /^90\d{10}$/.test(digits);
   telField.classList.toggle('has-error', !valid);
   telInput.setCustomValidity(valid ? '' : ' ');
   return valid;
