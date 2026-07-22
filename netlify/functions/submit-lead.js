@@ -38,7 +38,7 @@ exports.handler = async (event) => {
     return { statusCode: 400, body: JSON.stringify({ success: false, error: 'invalid_json' }) };
   }
 
-  const { ad, email, tel, meslek, kvkk_onay, fbp, fbc, fbclid, landing_url, referrer } = payload;
+  const { ad, email, tel, meslek, kvkk_onay, fbp, fbc, fbclid, landing_url, referrer, test_event_code } = payload;
 
   if (!ad || !email || !tel || !meslek || !kvkk_onay) {
     return { statusCode: 400, body: JSON.stringify({ success: false, error: 'missing_fields' }) };
@@ -105,6 +105,10 @@ exports.handler = async (event) => {
       },
     ],
   };
+  // test_event_code yalnizca dogrulama amacli manuel testlerde gonderilir (frontend hicbir
+  // zaman bu alani doldurmaz) - gercek basvurularda bu alan olmadigi icin Meta Test Events
+  // ekraninda gorunmezler, bu normal ve beklenen davranistir.
+  if (test_event_code) capiBody.test_event_code = test_event_code;
 
   // 3) Meta CAPI'ye gonder. CAPI basarisiz olsa da basvuru Formspree'ye kaydedildigi icin
   //    kullaniciya hata gostermiyoruz - sadece loglayip devam ediyoruz.
