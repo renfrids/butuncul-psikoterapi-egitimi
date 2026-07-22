@@ -93,16 +93,9 @@ form.addEventListener('submit', async (e) => {
     if (!res.ok || !data.success) throw new Error('Gönderim başarısız');
     form.style.display = 'none';
     document.getElementById('formSuccess').classList.add('show');
-    /* Meta Pixel: Lead eventi yalnizca basvuru basariyla kaydedildikten sonra, backend'in
-       urettigi ayni event_id ile tetiklenir (Pixel + CAPI dedup icin). */
-    if (typeof fbq === 'function' && data.eventId) {
-      fbq('track', 'Lead', {
-        content_name: 'Bütüncül Psikoterapi Eğitimi',
-        content_category: 'education',
-        lead_type: 'pre_interview_application',
-        form_id: 'education_pre_interview_form'
-      }, { eventID: data.eventId });
-    }
+    /* Lead eventi taraycidan degil, yalnizca sunucudan (Netlify Function -> Meta
+       Conversions API) gonderiliyor. Tarayicida ayrica fbq('track','Lead',...)
+       CAGRILMIYOR - PII tarayici agina hic cikmiyor, tek kaynak backend. */
   } catch (err) {
     submitBtn.disabled = false;
     alert('Talebiniz gönderilemedi. Lütfen tekrar deneyin ya da bizimle doğrudan iletişime geçin.');
