@@ -65,8 +65,23 @@ function getCookie(name) {
   return match ? decodeURIComponent(match[1]) : '';
 }
 
+const telInput = document.getElementById('tel');
+const telField = telInput.closest('.field');
+
+function validatePhone() {
+  const digits = telInput.value.replace(/\D/g, '');
+  const valid = /^0\d{10}$/.test(digits); // basinda 0 + toplam 11 hane (TR cep telefonu)
+  telField.classList.toggle('has-error', !valid);
+  telInput.setCustomValidity(valid ? '' : ' ');
+  return valid;
+}
+telInput.addEventListener('input', () => {
+  if (telField.classList.contains('has-error')) validatePhone();
+});
+
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
+  if (!validatePhone()) { telInput.focus(); return; }
   if (!form.checkValidity()) { form.reportValidity(); return; }
   const submitBtn = form.querySelector('button[type="submit"]');
   submitBtn.disabled = true;
