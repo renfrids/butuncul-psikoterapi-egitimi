@@ -112,7 +112,6 @@ exports.handler = async (event) => {
 
   // 3) Meta CAPI'ye gonder. CAPI basarisiz olsa da basvuru Formspree'ye kaydedildigi icin
   //    kullaniciya hata gostermiyoruz - sadece loglayip devam ediyoruz.
-  let capiDebug = null;
   if (META_ACCESS_TOKEN) {
     try {
       const capiRes = await fetch(
@@ -123,22 +122,19 @@ exports.handler = async (event) => {
           body: JSON.stringify(capiBody),
         }
       );
-      const capiText = await capiRes.text();
-      capiDebug = { status: capiRes.status, body: capiText };
       if (!capiRes.ok) {
-        console.error('Meta CAPI hata:', capiText);
+        console.error('Meta CAPI hata:', await capiRes.text());
       }
     } catch (err) {
-      capiDebug = { error: err.message };
       console.error('Meta CAPI istek hatasi:', err.message);
     }
   } else {
-    capiDebug = { error: 'META_ACCESS_TOKEN tanimli degil' };
+    console.error('META_ACCESS_TOKEN tanimli degil - CAPI gonderimi atlandi.');
   }
 
   return {
     statusCode: 200,
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ success: true, eventId, _capiDebug: capiDebug }),
+    body: JSON.stringify({ success: true, eventId }),
   };
 };
