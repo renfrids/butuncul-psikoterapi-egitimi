@@ -82,8 +82,8 @@ Formülasyon (Teoriden Uygulamaya) → Süpervizyon → Fark → Galeri →
 > Banu bölümünde. Bunları tekrar birleştirme.
 
 > Not: Tanıtım videosu Hero'nun içinden çıkarılıp tekrar ayrı bir bölüm (`#video`)
-> yapıldı — Hero'da onun yerine görsel/portre placeholder'ı duruyor (gerçek fotoğraf
-> geldiğinde `.hero-visual .img-placeholder` değişecek).
+> yapıldı — Hero'daki görsel yeri artık gerçek fotoğrafla dolu (`.hero-visual .portrait img`,
+> bkz. TODO madde 2 altındaki not).
 
 > Not: "Katılımcı Yorumları" bölümü daha önce müşteri talebiyle çıkarılmıştı;
 > 13.07.2026 revizyon PDF'i ile tekrar istendi ve placeholder olarak eklendi
@@ -110,9 +110,11 @@ Kod içinde `TODO` ve `[köşeli parantez]` ile işaretli. Brief ilkesi:
    -crf 26 -c:a aac -b:a 128k -movflags +faststart`, HEVC/.mov kaynaklar MUTLAKA
    böyle dönüştürülmeli, doğrudan konulmamalı (tarayıcı uyumsuzluğu).
 3. **Görseller** — **Galeri TAMAMLANDI** (27.07.2026, 8 gerçek fotoğraf `assets/images/galeri-*.jpg`).
-   Hâlâ eksik: Banu İkincisoy ve diğer eğitmenlerin **yakın çekim portre** fotoğrafları
-   (hero + `#egitmen` + `Eğitmenlerimiz` kartları) — elimizdeki fotoğraflar geniş açı/doğal
-   kareler, birebir portre değil, bu yüzden hero/portre yerlerine henüz konmadı.
+   **Hero portresi TAMAMLANDI** (27.07.2026, `assets/images/hero-portre.jpg`, `.hero-visual .portrait`
+   içinde gerçek `<img>`) — elimizdeki fotoğraf geniş açı/doğal kare olsa da müşteri onayıyla
+   kullanıldı. Hâlâ eksik: `#egitmen` (Banu İkincisoy Hakkında) ve `Eğitmenlerimiz` grid'indeki
+   7 kartın **yakın çekim portre** fotoğrafları — elimizdeki diğer fotoğraflar da geniş açı/doğal
+   kareler, birebir portre değil, bu yüzden o placeholder'lar henüz değiştirilmedi.
 4. **Eğitmen biyografisi** — `#egitmen` bölümündeki `[köşeli parantez]` metinler gerçek
    akademik geçmiş, uzmanlık, deneyim, üyeliklerle doldurulacak.
 5. **Müfredat** — `#icerik` akordeonundaki M5 ve sonrası kesin müfredata göre. Programda
