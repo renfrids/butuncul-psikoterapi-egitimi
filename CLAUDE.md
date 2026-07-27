@@ -139,11 +139,16 @@ Kod içinde `TODO` ve `[köşeli parantez]` ile işaretli. Brief ilkesi:
    -crf 26 -c:a aac -b:a 128k -movflags +faststart`, HEVC/.mov kaynaklar MUTLAKA
    böyle dönüştürülmeli, doğrudan konulmamalı (tarayıcı uyumsuzluğu).
 3. **Görseller** — **Galeri TAMAMLANDI** (27.07.2026, 8 gerçek fotoğraf `assets/images/galeri-*.jpg`).
-   **Hero portresi TAMAMLANDI** (27.07.2026, `assets/images/hero-portre.jpg`, `.hero-visual .portrait`
-   içinde gerçek `<img>`) — elimizdeki fotoğraf geniş açı/doğal kare olsa da müşteri onayıyla
-   kullanıldı. Hâlâ eksik: `#egitmen` (Banu İkincisoy Hakkında) ve `Eğitmenlerimiz` grid'indeki
-   7 kartın **yakın çekim portre** fotoğrafları — elimizdeki diğer fotoğraflar da geniş açı/doğal
-   kareler, birebir portre değil, bu yüzden o placeholder'lar henüz değiştirilmedi.
+   **Hero portresi TAMAMLANDI** (`assets/images/hero-portre.jpg`). **Eğitmen portreleri
+   TAMAMLANDI** (27.07.2026, `C:\Users\Dilara\Downloads\eğitmenler` klasöründen, dosya adı ↔
+   eğitmen adı eşleştirilerek): Banu İkincisoy (`egitmen-banu.jpg`, hem "Eğitmen Banu Hakkında"
+   bölümünde hem `Eğitmenlerimiz` kartında), Özlem Kaçkın (`egitmen-ozlem.jpg`, kaynak dosya adı
+   "kaçgin" yazılmıştı, muhtemelen yazım hatası — isim eşleşmesi teyit edilmeli), Ömer Yurtsever
+   (`egitmen-omer.jpg`), Ayşe Devrim Burçak Masalcı (`egitmen-ayse-devrim.jpg`), Fatma Canan Güllü
+   (`egitmen-fatma-canan.jpg`), Sıdıka Nur Bal (`egitmen-sidika.jpg`, kaynak dosya adı jenerik
+   "images.jpg" idi — isimsiz kadın portresi, kalan tek kadın eğitmen olduğu için eşleştirildi,
+   **müşteriyle teyit edilmeli**). **Hâlâ eksik: Mustafa Aydemir** — klasörde ona ait fotoğraf
+   yoktu, `Eğitmenlerimiz` kartındaki placeholder aynen duruyor.
 4. **Eğitmen biyografisi** — `#egitmen` bölümündeki `[köşeli parantez]` metinler gerçek
    akademik geçmiş, uzmanlık, deneyim, üyeliklerle doldurulacak.
 5. **Müfredat** — `#icerik` akordeonundaki M5 ve sonrası kesin müfredata göre. Programda
