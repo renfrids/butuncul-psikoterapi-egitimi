@@ -15,7 +15,10 @@ links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links
 
 /* ---------- hero başlık daktilo efekti ---------- */
 (() => {
-  const el = document.querySelector('.hero h1');
+  const isMobile = window.matchMedia('(max-width:860px)').matches;
+  const el = isMobile
+    ? document.querySelector('.hero-hook-overlay')
+    : document.querySelector('.hero h1');
   if (!el) return;
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduceMotion) return;
@@ -143,4 +146,28 @@ form.addEventListener('submit', async (e) => {
     frame.style.cursor = 'default';
     frame.appendChild(video);
   }, { once: true });
+})();
+
+/* ---------- mobil hero video: otomatik + sessiz basla, dokununca ses ac ---------- */
+(() => {
+  const isMobile = window.matchMedia('(max-width:860px)').matches;
+  if (!isMobile) return;
+  const wrap = document.getElementById('heroVideoMobile');
+  if (!wrap) return;
+  const hint = wrap.querySelector('.hero-video-hint');
+  const video = document.createElement('video');
+  video.src = 'assets/video/tanitim-video.mp4';
+  video.poster = 'assets/images/tanitim-poster.jpg';
+  video.muted = true;
+  video.loop = true;
+  video.playsInline = true;
+  video.autoplay = true;
+  wrap.prepend(video);
+  video.play().catch(() => {});
+  video.addEventListener('click', () => {
+    if (!video.muted) return;
+    video.muted = false;
+    video.controls = true;
+    if (hint) hint.style.display = 'none';
+  });
 })();

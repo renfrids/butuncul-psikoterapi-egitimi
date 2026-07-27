@@ -85,6 +85,20 @@ Formülasyon (Teoriden Uygulamaya) → Süpervizyon → Fark → Galeri →
 > yapıldı — Hero'daki görsel yeri artık gerçek fotoğrafla dolu (`.hero-visual .portrait img`,
 > bkz. TODO madde 2 altındaki not).
 
+> Not (27.07.2026, yalnızca mobil, ≤860px): Mobilde hero düzeni masaüstünden
+> tamamen farklı — `css/styles.css`'teki `@media (max-width:860px)` hero bloğunda
+> `display:contents` + `order` tekniğiyle sıralama değişiyor: eyebrow etiket →
+> küçük stilize edilmiş `<h1>` (artık büyük değil, `.eyebrow`'a benzer küçük/bold/
+> uppercase) → büyük **kanca cümlesi** (`.hero-hook-overlay`, daktilo efekti
+> mobilde h1 yerine buna uygulanıyor, bkz. `js/main.js`) → **otomatik oynayan
+> sessiz video** (`#heroVideoMobile`, `js/main.js`'te ayrı bir IIFE ile
+> `<video muted autoplay loop playsinline>` JS'le ekleniyor, dokununca ses açılıp
+> controls çıkıyor) → tek CTA butonu (`.btn-ghost` "Tanıtımı İzle" mobilde
+> gizli) → subtitle → fact kartları. Fotoğraf (`.portrait`) ve ayrı `#video`
+> bölümü mobilde `display:none` — masaüstünde ikisi de (fotoğraf + tıkla-oynat
+> video bölümü + büyük h1 daktilo efekti) birebir eskisi gibi çalışmaya devam
+> ediyor, bu değişiklik SADECE mobil görünüm için.
+
 > Not: "Katılımcı Yorumları" bölümü daha önce müşteri talebiyle çıkarılmıştı;
 > 13.07.2026 revizyon PDF'i ile tekrar istendi ve placeholder olarak eklendi
 > (Detaylar ile SSS arasında). Gerçek yorum/video içeriği gelince `[Katılımcı adı]`
