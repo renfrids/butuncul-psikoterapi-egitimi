@@ -156,15 +156,30 @@ form.addEventListener('submit', async (e) => {
   if (!wrap) return;
   const hint = wrap.querySelector('.hero-video-hint');
   const video = document.createElement('video');
-  video.src = 'assets/video/tanitim-video.mp4';
-  video.poster = 'assets/images/tanitim-poster.jpg';
+  // bazi mobil webview'ler (WhatsApp ic taraycisi vb.) autoplay icin
+  // muted/playsinline'i HTML attribute olarak da bekliyor, sadece JS property yetmiyor
+  video.setAttribute('muted', '');
+  video.setAttribute('autoplay', '');
+  video.setAttribute('playsinline', '');
+  video.setAttribute('webkit-playsinline', '');
   video.muted = true;
   video.loop = true;
   video.playsInline = true;
-  video.autoplay = true;
+  video.poster = 'assets/images/tanitim-poster.jpg';
+  video.src = 'assets/video/tanitim-video.mp4';
   wrap.prepend(video);
-  video.play().catch(() => {});
+  const tryPlay = () => video.play().catch(() => {});
+  tryPlay();
+  video.addEventListener('loadedmetadata', tryPlay);
+  video.addEventListener('canplay', tryPlay);
   video.addEventListener('click', () => {
+    if (video.paused) {
+      video.muted = false;
+      video.controls = true;
+      if (hint) hint.style.display = 'none';
+      tryPlay();
+      return;
+    }
     if (!video.muted) return;
     video.muted = false;
     video.controls = true;
