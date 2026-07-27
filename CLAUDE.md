@@ -109,8 +109,15 @@ Formülasyon (Teoriden Uygulamaya) → Süpervizyon → Fark → Galeri →
 
 > Not: "Katılımcı Yorumları" bölümü daha önce müşteri talebiyle çıkarılmıştı;
 > 13.07.2026 revizyon PDF'i ile tekrar istendi ve placeholder olarak eklendi
-> (Detaylar ile SSS arasında). Gerçek yorum/video içeriği gelince `[Katılımcı adı]`
-> ve "Yorum metni eklenecek." yer tutucuları doldurulacak.
+> (Detaylar ile SSS arasında, `id="yorumlar"`). Gerçek yorumlar gelince
+> `.diff` kartlarındaki **Lorem Ipsum** ad/ünvan/yorum metinleri (bilinçli
+> olarak lorem ipsum — gerçek isim/yorum UYDURMA, müşteri kendi verecek)
+> gerçek içerikle değiştirilecek.
+
+> Not (27.07.2026): Hero'da (`.hero-visual`, video/fotoğrafın hemen üstünde)
+> tıklanabilir bir puan satırı var: `.hero-rating` → `#yorumlar` bölümüne
+> scroll ediyor. Metin ("5 Yıldız - %98 Memnuniyet Oranı") müşterinin kendi
+> verdiği bir rakam — bunu ben uydurmadım, değiştirmeden önce müşteriye sor.
 
 ## DOLDURULACAK / BAĞLANACAK (TODO)
 
