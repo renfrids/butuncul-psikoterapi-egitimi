@@ -81,28 +81,19 @@ Formülasyon (Teoriden Uygulamaya) → Süpervizyon → Fark → Galeri →
 > kısa/basit (diğer kartlarla aynı format), detaylı biyografi yalnızca üstteki
 > Banu bölümünde. Bunları tekrar birleştirme.
 
-> Not: Tanıtım videosu Hero'nun içinden çıkarılıp tekrar ayrı bir bölüm (`#video`)
-> yapıldı — Hero'daki görsel yeri artık gerçek fotoğrafla dolu (`.hero-visual .portrait img`,
-> bkz. TODO madde 2 altındaki not).
-
-> Not (27.07.2026): Hero başlık hiyerarşisi **hem mobil hem masaüstünde** değişti —
-> `<h1>` ("Bütüncül Psikoterapi Eğitimi") artık küçük/bold/uppercase bir etiket
-> gibi (`.hero h1` base kuralı, `css/styles.css`), büyük/daktilo-efektli başlık
-> artık **kanca cümlesi** (`.hero-hook-overlay`, `js/main.js`'teki typewriter
-> IIFE `.hero-hook-overlay`'i hedefliyor, h1 değil). Bu ikisi evrensel (media
-> query dışı, base stil).
-
-> Not (27.07.2026, yalnızca mobil, ≤860px): Bunun dışında mobilde hero düzeni
-> masaüstünden farklı — `css/styles.css`'teki `@media (max-width:860px)` hero
-> bloğunda `display:contents` + `order` tekniğiyle sıralama değişiyor: eyebrow
-> etiket → küçük h1 etiketi → büyük kanca cümlesi → **otomatik oynayan sessiz
-> video** (`#heroVideoMobile`, `js/main.js`'te ayrı bir IIFE ile
-> `<video muted autoplay loop playsinline>` JS'le ekleniyor, dokununca ses açılıp
-> controls çıkıyor) → tek CTA butonu (`.btn-ghost` "Tanıtımı İzle" mobilde
-> gizli) → subtitle → fact kartları. Fotoğraf (`.portrait`) ve ayrı `#video`
-> bölümü mobilde `display:none` — masaüstünde ikisi de (fotoğraf + tıkla-oynat
-> video bölümü) birebir eskisi gibi çalışmaya devam ediyor, bu kısım SADECE
-> mobil görünüm için.
+> Not (27.07.2026, GÜNCEL — eski notların yerine geçer): Hero artık **tüm
+> ekran boyutlarında tek sütun** — eski 2 sütunlu (sol metin/sağ fotoğraf) grid
+> kaldırıldı. `css/styles.css`'te `.hero-grid` tek sütun + `display:contents` +
+> `order` tekniğiyle akış: eyebrow etiket → küçük/bold/uppercase `<h1>`
+> ("Bütüncül Psikoterapi Eğitimi") → büyük **kanca cümlesi** (`.hero-hook-overlay`,
+> daktilo efekti `js/main.js`'te buna uygulanıyor, h1'e değil) → **otomatik +
+> sessiz başlayan video** (`#heroVideo`, `js/main.js` ayrı bir IIFE ile
+> `<video muted autoplay loop playsinline>` ekliyor, dokununca ses açılıp
+> controls çıkıyor) → tek CTA butonu (`.btn-ghost` "Tanıtımı İzle" gizli) →
+> subtitle → fact kartları. Sabit fotoğraf (`.hero-visual .portrait`) ve ayrı
+> `#video` bölümü artık **her zaman** `display:none` — hepsi hero'nun içine
+> taşındı. Bu artık mobil/masaüstü ayrımı olmadan evrensel davranış (eski
+> "yalnızca mobil" notları geçersiz).
 
 > Not: "Katılımcı Yorumları" bölümü daha önce müşteri talebiyle çıkarılmıştı;
 > 13.07.2026 revizyon PDF'i ile tekrar istendi ve placeholder olarak eklendi

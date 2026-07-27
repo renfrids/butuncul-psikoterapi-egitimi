@@ -145,11 +145,9 @@ form.addEventListener('submit', async (e) => {
   }, { once: true });
 })();
 
-/* ---------- mobil hero video: otomatik + sessiz basla, dokununca ses ac ---------- */
+/* ---------- hero video: otomatik + sessiz basla, dokununca ses ac ---------- */
 (() => {
-  const isMobile = window.matchMedia('(max-width:860px)').matches;
-  if (!isMobile) return;
-  const wrap = document.getElementById('heroVideoMobile');
+  const wrap = document.getElementById('heroVideo');
   if (!wrap) return;
   const hint = wrap.querySelector('.hero-video-hint');
   const video = document.createElement('video');
