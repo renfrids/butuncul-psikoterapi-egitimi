@@ -15,10 +15,7 @@ links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links
 
 /* ---------- hero başlık daktilo efekti ---------- */
 (() => {
-  const isMobile = window.matchMedia('(max-width:860px)').matches;
-  const el = isMobile
-    ? document.querySelector('.hero-hook-overlay')
-    : document.querySelector('.hero h1');
+  const el = document.querySelector('.hero-hook-overlay');
   if (!el) return;
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduceMotion) return;
