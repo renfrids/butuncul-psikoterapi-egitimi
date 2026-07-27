@@ -81,19 +81,28 @@ Formülasyon (Teoriden Uygulamaya) → Süpervizyon → Fark → Galeri →
 > kısa/basit (diğer kartlarla aynı format), detaylı biyografi yalnızca üstteki
 > Banu bölümünde. Bunları tekrar birleştirme.
 
-> Not (27.07.2026, GÜNCEL — eski notların yerine geçer): Hero artık **tüm
-> ekran boyutlarında tek sütun** — eski 2 sütunlu (sol metin/sağ fotoğraf) grid
-> kaldırıldı. `css/styles.css`'te `.hero-grid` tek sütun + `display:contents` +
-> `order` tekniğiyle akış: eyebrow etiket → küçük/bold/uppercase `<h1>`
-> ("Bütüncül Psikoterapi Eğitimi") → büyük **kanca cümlesi** (`.hero-hook-overlay`,
-> daktilo efekti `js/main.js`'te buna uygulanıyor, h1'e değil) → **otomatik +
-> sessiz başlayan video** (`#heroVideo`, `js/main.js` ayrı bir IIFE ile
-> `<video muted autoplay loop playsinline>` ekliyor, dokununca ses açılıp
-> controls çıkıyor) → tek CTA butonu (`.btn-ghost` "Tanıtımı İzle" gizli) →
-> subtitle → fact kartları. Sabit fotoğraf (`.hero-visual .portrait`) ve ayrı
-> `#video` bölümü artık **her zaman** `display:none` — hepsi hero'nun içine
-> taşındı. Bu artık mobil/masaüstü ayrımı olmadan evrensel davranış (eski
-> "yalnızca mobil" notları geçersiz).
+> Not (27.07.2026, GÜNCEL — eski notların yerine geçer): Hero **masaüstü ve
+> mobilde bilinçli olarak FARKLI** — bu proje kararı, tek seferlik bir deneme
+> değil, birkaç kez ileri geri denendikten sonra netleşti:
+> - **Masaüstünde** (>860px) 2 sütunlu grid (`grid-template-columns:1.05fr .95fr`):
+>   solda metin (eyebrow → küçük/bold/uppercase `<h1>` "Bütüncül Psikoterapi
+>   Eğitimi" → subtitle → CTA (iki buton) → fact kartları), sağda **gerçek
+>   fotoğraf** (`.hero-visual .portrait img`, `hero-portre.jpg`) ve onun hemen
+>   üstünde büyük **kanca cümlesi** (`.hero-hook-overlay`, daktilo efekti
+>   `js/main.js`'te buna uygulanıyor, h1'e değil).
+> - **Mobilde** (≤860px, `@media` içinde `css/styles.css`) tamamen farklı bir
+>   akış: `display:contents` + `order` ile tek sütun — eyebrow → küçük h1 →
+>   büyük kanca cümlesi (daktilo) → **otomatik + sessiz başlayan video**
+>   (`#heroVideo`, `js/main.js`'teki ayrı IIFE `isMobile` kontrolüyle SADECE
+>   mobilde `<video muted autoplay loop playsinline>` ekliyor, dokununca ses
+>   açılıp controls çıkıyor) → tek CTA butonu (`.btn-ghost` "Tanıtımı İzle"
+>   mobilde gizli) → subtitle → fact kartları. Fotoğraf ve ayrı `#video`
+>   bölümü SADECE mobilde `display:none`.
+> - h1/hook-overlay tipografisi (küçük etiket / büyük daktilo başlık) **her
+>   ikisinde de aynı** — bu kısım evrensel, media query'ye bağlı değil.
+>
+> Bunu tekrar "tek sütun her yerde" veya "2 sütun her yerde" gibi tek bir
+> düzene indirgemeye ÇALIŞMA — müşteri özellikle masaüstü/mobil ayrımını istiyor.
 
 > Not: "Katılımcı Yorumları" bölümü daha önce müşteri talebiyle çıkarılmıştı;
 > 13.07.2026 revizyon PDF'i ile tekrar istendi ve placeholder olarak eklendi
