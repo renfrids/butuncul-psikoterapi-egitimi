@@ -161,9 +161,8 @@ Kod içinde `TODO` ve `[köşeli parantez]` ile işaretli. Brief ilkesi:
    "images.jpg" idi — isimsiz kadın portresi, kalan tek kadın eğitmen olduğu için eşleştirildi,
    **müşteriyle teyit edilmeli**). Mustafa Aydemir kadrodan tamamen çıkarıldığı için onun
    için fotoğraf gerekmiyor (bkz. yukarıdaki not).
-4. **Eğitmen biyografisi** — **TAMAMLANDI** (27.07.2026, Banu/Ömer/Ayşe Devrim/Fatma Canan/
-   Sıdıka Nur için müşteriden gelen gerçek metinlerle). **Hâlâ eksik: Özlem Kaçkın**'ın
-   biyografisi — `.team-short.tbd` placeholder'ı duruyor, metin gelince doldurulacak.
+4. **Eğitmen biyografisi** — **TAMAMLANDI** (27.07.2026, tüm 6 eğitmen: Banu, Özlem,
+   Ömer, Ayşe Devrim, Fatma Canan, Sıdıka Nur — müşteriden gelen gerçek metinlerle).
 5. **Müfredat** — `#icerik` akordeonundaki M5 ve sonrası kesin müfredata göre. Programda
    olmayan modül eklenmez.
 6. **Tarih / yer / ücret / kontenjan / sertifika / süpervizyon detayları** — `#detaylar`
