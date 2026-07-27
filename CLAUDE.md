@@ -85,11 +85,14 @@ Formülasyon (Teoriden Uygulamaya) → Süpervizyon → Fark → Galeri →
 > mobilde bilinçli olarak FARKLI** — bu proje kararı, tek seferlik bir deneme
 > değil, birkaç kez ileri geri denendikten sonra netleşti:
 > - **Masaüstünde** (>860px) 2 sütunlu grid (`grid-template-columns:1.05fr .95fr`):
->   solda metin (eyebrow → küçük/bold/uppercase `<h1>` "Bütüncül Psikoterapi
->   Eğitimi" → subtitle → CTA (iki buton) → fact kartları), sağda **gerçek
->   fotoğraf** (`.hero-visual .portrait img`, `hero-portre.jpg`) ve onun hemen
->   üstünde büyük **kanca cümlesi** (`.hero-hook-overlay`, daktilo efekti
->   `js/main.js`'te buna uygulanıyor, h1'e değil).
+>   solda metin — eyebrow → küçük/bold/uppercase `<h1>` "Bütüncül Psikoterapi
+>   Eğitimi" → hemen altında büyük **kanca cümlesi** (`.hero-hook-overlay`,
+>   `hero-text` içinde, H1'in altında; daktilo efekti `js/main.js`'te buna
+>   uygulanıyor, h1'e değil) → subtitle → CTA (iki buton) → fact kartları.
+>   **Sağda SADECE görsel** (`.hero-visual` artık hiç yazı içermiyor) — gerçek
+>   fotoğraf (`.portrait img`, `hero-portre.jpg`). Kanca cümlesi fiziksel
+>   olarak HTML'de `hero-text` içinde duruyor (eskiden `hero-visual`
+>   içindeydi, foto/videonun üstünde overlay gibi görünüyordu — artık değil).
 > - **Mobilde** (≤860px, `@media` içinde `css/styles.css`) tamamen farklı bir
 >   akış: `display:contents` + `order` ile tek sütun — eyebrow → küçük h1 →
 >   büyük kanca cümlesi (daktilo) → **otomatik + sessiz başlayan video**
