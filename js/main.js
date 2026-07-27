@@ -128,8 +128,20 @@ form.addEventListener('submit', async (e) => {
   }
 });
 
-/* ---------- video placeholder ---------- */
-document.getElementById('videoFrame').addEventListener('click', () => {
-  /* TODO (Claude Code): YouTube/Vimeo iframe'i buraya gömün. */
-  alert('Tanıtım videosu buraya gömülecek (YouTube/Vimeo embed).');
-});
+/* ---------- tanıtım videosu (YouTube, tiklaninca yuklenir) ---------- */
+(() => {
+  const frame = document.getElementById('videoFrame');
+  if (!frame) return;
+  const YOUTUBE_ID = 'R9gjaCSOiJ0';
+  frame.addEventListener('click', () => {
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube-nocookie.com/embed/${YOUTUBE_ID}?autoplay=1&rel=0`;
+    iframe.title = 'Tanıtım videosu';
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allowFullscreen = true;
+    iframe.style.cssText = 'position:absolute; inset:0; width:100%; height:100%; border:0;';
+    frame.innerHTML = '';
+    frame.style.cursor = 'default';
+    frame.appendChild(iframe);
+  }, { once: true });
+})();
