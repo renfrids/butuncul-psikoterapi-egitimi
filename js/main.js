@@ -128,20 +128,19 @@ form.addEventListener('submit', async (e) => {
   }
 });
 
-/* ---------- tanıtım videosu (YouTube, tiklaninca yuklenir) ---------- */
+/* ---------- tanıtım videosu (kendi sunucumuzda barinan mp4, tiklaninca yuklenir) ---------- */
 (() => {
   const frame = document.getElementById('videoFrame');
   if (!frame) return;
-  const YOUTUBE_ID = 'R9gjaCSOiJ0';
   frame.addEventListener('click', () => {
-    const iframe = document.createElement('iframe');
-    iframe.src = `https://www.youtube-nocookie.com/embed/${YOUTUBE_ID}?autoplay=1&rel=0`;
-    iframe.title = 'Tanıtım videosu';
-    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-    iframe.allowFullscreen = true;
-    iframe.style.cssText = 'position:absolute; inset:0; width:100%; height:100%; border:0;';
+    const video = document.createElement('video');
+    video.src = 'assets/video/tanitim-video.mp4';
+    video.controls = true;
+    video.autoplay = true;
+    video.playsInline = true;
+    video.style.cssText = 'position:absolute; inset:0; width:100%; height:100%; object-fit:cover;';
     frame.innerHTML = '';
     frame.style.cursor = 'default';
-    frame.appendChild(iframe);
+    frame.appendChild(video);
   }, { once: true });
 })();

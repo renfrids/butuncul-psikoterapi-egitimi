@@ -274,12 +274,13 @@ strong{ font-weight:600; color:var(--brand-deep); }
 .video-wrap{ max-width:860px; margin:0 auto; }
 .video-frame{
   aspect-ratio:16/9; border-radius:var(--radius-lg); overflow:hidden;
-  background:linear-gradient(155deg,#333a5e,#1c1f34); position:relative;
-  box-shadow:var(--shadow-md); cursor:pointer;
+  background-color:#1c1f34; background-size:cover; background-position:center;
+  position:relative; box-shadow:var(--shadow-md); cursor:pointer;
 }
 .play{
   position:absolute; inset:0; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:14px;
   color:#F4EEDF;
+  background:linear-gradient(180deg, rgba(20,20,30,.25), rgba(20,20,30,.15) 40%, rgba(20,20,30,.55));
 }
 .play .ring{
   width:74px; height:74px; border-radius:50%; background:rgba(247,243,234,.14);

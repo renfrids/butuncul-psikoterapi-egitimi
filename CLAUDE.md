@@ -99,8 +99,16 @@ Kod içinde `TODO` ve `[köşeli parantez]` ile işaretli. Brief ilkesi:
    Netlify Function'ına POST ediyor; bu function Formspree'ye (`mkodwnvn`) iletiyor ve
    başarılıysa Meta Conversions API'ye de gönderiyor (bkz. "Meta Pixel / Conversions API"
    bölümü aşağıda).
-2. ~~Tanıtım videosu~~ — **TAMAMLANDI (27.07.2026).** `#videoFrame` tıklanınca YouTube
-   videosunu (ID: `R9gjaCSOiJ0`, youtube-nocookie.com, unlisted) gömüyor (`js/main.js`).
+2. ~~Tanıtım videosu~~ — **TAMAMLANDI (27.07.2026).** Önce YouTube denendi ama embed'de
+   yükleyen hesabın adı ("Dilara Sipahi") videonun altında göründüğü için **kendi
+   sunucumuzda barındırmaya geçildi**. Kaynak `.mov` (HEVC, 1920x1080, 131MB) idi;
+   tarayıcı uyumluluğu ve boyut için ffmpeg ile H.264 MP4'e, 1280x720'ye, ~12MB'a
+   dönüştürüldü (`assets/video/tanitim-video.mp4`). Kapak görseli videodan çıkarılan
+   bir kare (`assets/images/tanitim-poster.jpg`). `#videoFrame` tıklanınca `<video>`
+   etiketi DOM'a ekleniyor (`js/main.js`) — sayfa ilk yüklenirken video indirilmiyor.
+   Yeni video eklenecekse aynı ffmpeg komutunu kullan: `-c:v libx264 -preset slow
+   -crf 26 -c:a aac -b:a 128k -movflags +faststart`, HEVC/.mov kaynaklar MUTLAKA
+   böyle dönüştürülmeli, doğrudan konulmamalı (tarayıcı uyumsuzluğu).
 3. **Görseller** — **Galeri TAMAMLANDI** (27.07.2026, 8 gerçek fotoğraf `assets/images/galeri-*.jpg`).
    Hâlâ eksik: Banu İkincisoy ve diğer eğitmenlerin **yakın çekim portre** fotoğrafları
    (hero + `#egitmen` + `Eğitmenlerimiz` kartları) — elimizdeki fotoğraflar geniş açı/doğal
