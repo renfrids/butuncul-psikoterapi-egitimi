@@ -524,7 +524,14 @@ strong{ font-weight:600; color:var(--brand-deep); }
 .team-card .portrait{ aspect-ratio:3/4; margin-bottom:1.2rem; }
 .team-info h3{ font-family:var(--serif); color:var(--brand-deep); font-size:1.3rem; margin:0 0 .2rem; }
 .team-role{ color:var(--clay); font-weight:600; font-size:.86rem; margin:0 0 .8rem; }
-.team-short{ color:var(--ink); margin:0 0 1rem; }
+.team-short{ color:var(--ink); margin:0 0 .5rem; }
+.team-full{ color:var(--ink); margin:0 0 .6rem; }
+.team-more-btn{
+  display:inline-block; margin:0 0 .4rem; padding:0; background:none; border:none;
+  font-family:var(--sans); font-weight:600; font-size:.86rem; color:var(--clay);
+  cursor:pointer; text-decoration:underline; text-underline-offset:2px;
+}
+.team-more-btn:hover{ color:var(--brand); }
 .about-cred{ display:flex; flex-wrap:wrap; gap:.5rem; margin:1.2rem 0 0; }
 .about-cred span{ background:var(--bg-alt); border:1px solid var(--line-soft); border-radius:100px; padding:.4rem .95rem; font-size:.86rem; font-weight:500; color:var(--brand-deep); }
 

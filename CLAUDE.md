@@ -73,13 +73,25 @@ Hero (tag/kicker/hook başlık + açıklama, sağda görsel) → Tanıtım Video
 bölüm) → Kazanımlar → Zorluklar → Hakkımızda → Nedir → Kimler İçin → Müfredat →
 Formülasyon (Teoriden Uygulamaya) → Süpervizyon → Fark → Galeri →
 **Eğitmen Banu İkincisoy Hakkında** (yeni, Banu'ya özel odak bölümü) → Eğitmenlerimiz
-(7 kişilik ekip grid'i) → Detaylar → Katılımcı Yorumları → SSS → Form.
+(6 kişilik ekip grid'i) → Detaylar → Katılımcı Yorumları → SSS → Form.
 
 > Not: "Eğitmen Banu İkincisoy Hakkında" ile "Eğitmenlerimiz" **iki ayrı bölüm** —
-> ilki sadece Banu'nun (eğitmenin) detaylı biyografisi/tanıtımı, ikincisi 7 kişilik
+> ilki sadece Banu'nun (eğitmenin) detaylı biyografisi/tanıtımı, ikincisi 6 kişilik
 > tüm eğitmen kadrosunun kısa kartları. Eğitmenlerimiz grid'indeki Banu kartı artık
 > kısa/basit (diğer kartlarla aynı format), detaylı biyografi yalnızca üstteki
 > Banu bölümünde. Bunları tekrar birleştirme.
+
+> Not (27.07.2026): **Mustafa Aydemir kadrodan tamamen çıkarıldı** (müşteri talebi,
+> yerine kimse eklenmeyecek) — `Eğitmenlerimiz` grid'i artık 6 kişi, hero'daki
+> "6 eğitmenden oluşan ekip" ifadesi buna göre güncellendi.
+
+> Not (27.07.2026): Eğitmen kısa biyografileri **TAMAMLANDI** (Banu, Ömer, Ayşe
+> Devrim, Fatma Canan, Sıdıka Nur — müşteriden gelen gerçek metinler). Her kartta
+> `.team-short` (her zaman görünen 1-2 cümle) + `.team-full` (`hidden` attribute,
+> gizli) + `.team-more-btn` ("Devamını oku" / "Daha az göster" toggle, `js/main.js`)
+> var. Banu'nun biyografisi ayrıca üstteki "Eğitmen Banu İkincisoy Hakkında"
+> bölümüne de (tam metin, kısaltmasız) eklendi. **Hâlâ eksik: Özlem Kaçkın** —
+> onun için metin gelmedi, `.team-short.tbd` placeholder'ı aynen duruyor.
 
 > Not (27.07.2026, GÜNCEL — eski notların yerine geçer): Hero **masaüstü ve
 > mobilde bilinçli olarak FARKLI** — bu proje kararı, tek seferlik bir deneme
@@ -147,10 +159,11 @@ Kod içinde `TODO` ve `[köşeli parantez]` ile işaretli. Brief ilkesi:
    (`egitmen-omer.jpg`), Ayşe Devrim Burçak Masalcı (`egitmen-ayse-devrim.jpg`), Fatma Canan Güllü
    (`egitmen-fatma-canan.jpg`), Sıdıka Nur Bal (`egitmen-sidika.jpg`, kaynak dosya adı jenerik
    "images.jpg" idi — isimsiz kadın portresi, kalan tek kadın eğitmen olduğu için eşleştirildi,
-   **müşteriyle teyit edilmeli**). **Hâlâ eksik: Mustafa Aydemir** — klasörde ona ait fotoğraf
-   yoktu, `Eğitmenlerimiz` kartındaki placeholder aynen duruyor.
-4. **Eğitmen biyografisi** — `#egitmen` bölümündeki `[köşeli parantez]` metinler gerçek
-   akademik geçmiş, uzmanlık, deneyim, üyeliklerle doldurulacak.
+   **müşteriyle teyit edilmeli**). Mustafa Aydemir kadrodan tamamen çıkarıldığı için onun
+   için fotoğraf gerekmiyor (bkz. yukarıdaki not).
+4. **Eğitmen biyografisi** — **TAMAMLANDI** (27.07.2026, Banu/Ömer/Ayşe Devrim/Fatma Canan/
+   Sıdıka Nur için müşteriden gelen gerçek metinlerle). **Hâlâ eksik: Özlem Kaçkın**'ın
+   biyografisi — `.team-short.tbd` placeholder'ı duruyor, metin gelince doldurulacak.
 5. **Müfredat** — `#icerik` akordeonundaki M5 ve sonrası kesin müfredata göre. Programda
    olmayan modül eklenmez.
 6. **Tarih / yer / ücret / kontenjan / sertifika / süpervizyon detayları** — `#detaylar`

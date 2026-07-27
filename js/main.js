@@ -57,6 +57,17 @@ document.querySelectorAll('.acc-head').forEach(btn => {
   });
 });
 
+/* ---------- eğitmen biyografisi "devamını oku" ---------- */
+document.querySelectorAll('.team-more-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const full = btn.previousElementSibling;
+    if (!full || !full.classList.contains('team-full')) return;
+    const isHidden = full.hidden;
+    full.hidden = !isHidden;
+    btn.textContent = isHidden ? 'Daha az göster' : 'Devamını oku';
+  });
+});
+
 /* ---------- form (Netlify Function uzerinden Formspree + Meta CAPI) ---------- */
 const form = document.getElementById('leadForm');
 
