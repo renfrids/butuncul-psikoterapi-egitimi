@@ -121,10 +121,14 @@ Formülasyon (Teoriden Uygulamaya) → Süpervizyon → Fark → Galeri →
 
 > Not: "Katılımcı Yorumları" bölümü daha önce müşteri talebiyle çıkarılmıştı;
 > 13.07.2026 revizyon PDF'i ile tekrar istendi ve placeholder olarak eklendi
-> (Detaylar ile SSS arasında, `id="yorumlar"`). Gerçek yorumlar gelince
-> `.diff` kartlarındaki **Lorem Ipsum** ad/ünvan/yorum metinleri (bilinçli
-> olarak lorem ipsum — gerçek isim/yorum UYDURMA, müşteri kendi verecek)
-> gerçek içerikle değiştirilecek.
+> (Detaylar ile SSS arasında, `id="yorumlar"`).
+
+> Not (27.07.2026): Yorumlar **GERÇEK** (müşteriden geldi, Lorem Ipsum değil) —
+> 5 kart, `.diff-grid` içinde. Yorum metni ve ünvan gerçek, yalnızca **isim
+> `[Ad Soyad]` placeholder** (müşteri isimleri sonra verecek, henüz anonim
+> kalsın istendi). 5. yorumun ünvanı da henüz verilmedi (`[Unvan]`). İsimler
+> gelince `h4` içindeki `[Ad Soyad]` (ve gerekirse `[Unvan]`) metinlerini
+> gerçek isimle değiştir — yorum metnine veya sırasına dokunma.
 
 > Not (27.07.2026): Hero'da (`.hero-visual`, video/fotoğrafın hemen üstünde)
 > tıklanabilir bir puan satırı var: `.hero-rating` → `#yorumlar` bölümüne
