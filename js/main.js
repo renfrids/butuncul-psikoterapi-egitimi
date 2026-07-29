@@ -1,3 +1,11 @@
+/* ---------- URL'de hash varsa (ör. reklam linki #form ile bitiyorsa) sayfa
+   acilista otomatik kaymasin, hep en ustten baslasin ---------- */
+if (window.location.hash) {
+  history.scrollRestoration = 'manual';
+  window.scrollTo(0, 0);
+  window.addEventListener('load', () => window.scrollTo(0, 0));
+}
+
 /* ---------- yıl ---------- */
 document.getElementById('year').textContent = new Date().getFullYear();
 
