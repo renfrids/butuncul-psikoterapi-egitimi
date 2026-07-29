@@ -123,12 +123,12 @@ Formülasyon (Teoriden Uygulamaya) → Süpervizyon → Fark → Galeri →
 > 13.07.2026 revizyon PDF'i ile tekrar istendi ve placeholder olarak eklendi
 > (Detaylar ile SSS arasında, `id="yorumlar"`).
 
-> Not (27.07.2026): Yorumlar **GERÇEK** (müşteriden geldi, Lorem Ipsum değil) —
-> 5 kart, `.diff-grid` içinde. Yorum metni ve ünvan gerçek, yalnızca **isim
-> `[Ad Soyad]` placeholder** (müşteri isimleri sonra verecek, henüz anonim
-> kalsın istendi). 5. yorumun ünvanı da henüz verilmedi (`[Unvan]`). İsimler
-> gelince `h4` içindeki `[Ad Soyad]` (ve gerekirse `[Unvan]`) metinlerini
-> gerçek isimle değiştir — yorum metnine veya sırasına dokunma.
+> Not (27.07.2026 → 29.07.2026): Yorumlar **TAMAMEN GERÇEK/TAMAMLANDI** — 5 kart,
+> `.diff-grid` içinde. İsimler de eklendi (Zeren Aydın, Yarkın Eren, Emre Okşan,
+> Zeynep Çetinkaya, Çağla Dilara Sipahi) — müşteri isim+ünvanları verdi, ben
+> ünvana göre doğru karta eşleştirdim (roller zaten kartlarda vardı, 5. kartın
+> ünvanı da bu mesajla netleşti: Uzman Psikolog). Artık `[Ad Soyad]`/`[Unvan]`
+> placeholder'ı kalmadı.
 
 > Not (27.07.2026): Hero'da (`.hero-visual`, video/fotoğrafın hemen üstünde)
 > tıklanabilir bir puan satırı var: `.hero-rating` → `#yorumlar` bölümüne
