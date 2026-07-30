@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+<!-- URL'de hash varsa (ör. reklam linki #form ile bitiyorsa) tarayicinin
+     sayfa yuklenirken otomatik olarak o bolume kaymasini engelle. Bu script
+     mumkun oldugunca erken (head'in en basinda) calisiyor ki tarayici hash'i
+     islemeden once adres cubugundan temizlensin. -->
+<script>
+if (window.location.hash) {
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  history.replaceState(null, '', window.location.pathname + window.location.search);
+}
+</script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
